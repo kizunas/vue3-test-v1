@@ -8,14 +8,15 @@
 </template>
 
 <script>
+import { provide } from 'vue'
+
 export default {
-  data() {
-    return{}
-  },
-  provide(){
-    return {
-      userName: '親で設定した値'
-    }
+  setup() {
+    provide('location', 'North Pole')
+    provide('geolocation', {
+      longitude: 90,
+      latitude: 135
+    })
   }
 }
 </script>
