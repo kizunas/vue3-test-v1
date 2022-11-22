@@ -1,6 +1,7 @@
 <template>
   <div>GrandChildren （孫）</div>
   <div>{{userLocation}}</div>
+  <div>{{updateUserLocation}}</div>
   <div>{{userGeolocation.longitude}}</div>
   <div>{{userGeolocation.latitude}}</div>
 </template>
@@ -12,10 +13,12 @@ export default {
   setup() {
     const userLocation = inject('location', 'The Universe')
     const userGeolocation = inject('geolocation')
+    const updateUserLocation = inject('updateLocation')
 
     return {
       userLocation,
-      userGeolocation
+      userGeolocation,
+      updateUserLocation
     }
   }
 }

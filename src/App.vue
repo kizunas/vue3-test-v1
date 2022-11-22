@@ -5,7 +5,6 @@
     <router-link to="/childrenView">ChildrenView</router-link>
   </nav>
   <router-view/>
-  <button @click="updateLocation()">Location Change</button>
 </template>
 
 <script>
@@ -19,20 +18,13 @@ export default {
       latitude: 135
     })
 
+    const updateLocation = () => {
+      location.value = 'South Pole'
+    }
+
     provide('location', location)
     provide('geolocation', geolocation)
-
-    return {
-      location,
-      geolocation
-    }
-
-  },
-  methods: {
-    updateLocation() {
-      this.location = 'South Pole'
-      this.geolocation.latitude = -135
-    }
+    provide('updateLocation', updateLocation)
   }
 }
 </script>
