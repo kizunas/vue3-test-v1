@@ -5,18 +5,34 @@
     <router-link to="/childrenView">ChildrenView</router-link>
   </nav>
   <router-view/>
+  <button @click="updateLocation()">Location Change</button>
 </template>
 
 <script>
-import { provide } from 'vue'
+import { provide, reactive, ref } from 'vue'
 
 export default {
   setup() {
-    provide('location', 'North Pole')
-    provide('geolocation', {
+    const location = ref('North Pole')
+    const geolocation = reactive({
       longitude: 90,
       latitude: 135
     })
+
+    provide('location', location)
+    provide('geolocation', geolocation)
+
+    return {
+      location,
+      geolocation
+    }
+
+  },
+  methods: {
+    updateLocation() {
+      this.location = 'South Pole'
+      this.geolocation.latitude = -135
+    }
   }
 }
 </script>
