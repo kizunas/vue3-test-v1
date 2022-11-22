@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { provide, reactive, ref } from 'vue'
+import { provide, reactive, readonly, ref } from 'vue'
 
 export default {
   setup() {
@@ -22,8 +22,8 @@ export default {
       location.value = 'South Pole'
     }
 
-    provide('location', location)
-    provide('geolocation', geolocation)
+    provide('location', readonly(location))
+    provide('geolocation', readonly(geolocation))
     provide('updateLocation', updateLocation)
   }
 }
