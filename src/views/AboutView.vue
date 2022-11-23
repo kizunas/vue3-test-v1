@@ -52,6 +52,21 @@ export default {
       console.log(e)
     }
 
+    const count = ref(1)
+    const plusOne = computed({
+      get: () => count.value + 1,
+      set: val => {
+        count.value = val - 1
+      }
+    })
+    console.log(plusOne)       //object
+    console.log(count.value)   //1
+    console.log(plusOne.value) //2
+    plusOne.value = 10
+    console.log(plusOne)       //object
+    console.log(count.value)   //0
+    console.log(plusOne.value) //1
+
     return {
       name,
       age,
