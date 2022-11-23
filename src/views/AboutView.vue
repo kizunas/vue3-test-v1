@@ -9,17 +9,28 @@
     <h1>reactivToRefs:{{authorRef[1]}}</h1>
     <button @click="btnClick">クリック</button>
     <button @click="btnClick2">クリック2</button>
+    <h1>computed:{{totalPrice}}</h1>
+
   </div>
 </template>
 
 <script>
-import { ref, reactive, toRefs } from 'vue'
+import { ref, reactive, toRefs, computed } from 'vue'
 
 export default {
   data(){},
   setup(){
     let name = '大谷'
     const age = 30
+
+    const item = reactive({
+      price: 100,
+      number: 1
+    })
+
+    const totalPrice = computed(()=>{
+      return item.price * item.number
+    })
 
     const nameRef = ref('錦織')
 
@@ -48,7 +59,9 @@ export default {
       book,
       ...toRefs(booktoRefs),
       btnClick,
-      btnClick2
+      btnClick2,
+      item,
+      totalPrice
     }
   }
 }
