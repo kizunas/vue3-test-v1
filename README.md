@@ -1,5 +1,5 @@
 # vue3-test
-vue3 use testsssssss
+vue3 use tests
 ## Project setup
 ```
 npm install
