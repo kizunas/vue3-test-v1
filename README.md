@@ -1,5 +1,6 @@
 # vue3-test
-test1
+not errors
+
 ## Project setup
 ```
 npm install
@@ -24,4 +25,3 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
-test2
