@@ -23,15 +23,6 @@ export default {
     let name = '大谷'
     const age = 30
 
-    const item = reactive({
-      price: 100,
-      number: 1
-    })
-
-    const totalPrice = computed(()=>{
-      return item.price * item.number
-    })
-
     const nameRef = ref('錦織')
 
     const book = reactive({
@@ -52,20 +43,14 @@ export default {
       console.log(e)
     }
 
-    const count = ref(1)
-    const plusOne = computed({
-      get: () => count.value + 1,
-      set: val => {
-        count.value = val - 1
-      }
+    const item = reactive({
+      price: 100,
+      number: 1
     })
-    console.log(plusOne)       //object
-    console.log(count.value)   //1
-    console.log(plusOne.value) //2
-    plusOne.value = 10
-    console.log(plusOne)       //object
-    console.log(count.value)   //0
-    console.log(plusOne.value) //1
+
+    const totalPrice = computed(()=>{
+      return item.price * item.number
+    })
 
     return {
       name,
