@@ -10,12 +10,12 @@
     <button @click="btnClick">クリック</button>
     <button @click="btnClick2">クリック2</button>
     <h1>computed:{{totalPrice}}</h1>
-
+    <div><input v-model="search"></div>
   </div>
 </template>
 
 <script>
-import { ref, reactive, toRefs, computed } from 'vue'
+import { ref, reactive, toRefs, computed, watch } from 'vue'
 
 export default {
   data(){},
@@ -52,6 +52,13 @@ export default {
       return item.price * item.number
     })
 
+    const search = ref('')
+    watch (search, (newValue, preValue) => {
+      console.log(`watch: ${search.value}`)
+      console.log(`newValue: ${newValue}`)
+      console.log(`preValue: ${preValue}`)
+    })
+
     return {
       name,
       age,
@@ -61,7 +68,8 @@ export default {
       btnClick,
       btnClick2,
       item,
-      totalPrice
+      totalPrice,
+      search
     }
   }
 }
