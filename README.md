@@ -1,5 +1,5 @@
 # vue3-test
-not errors
+vue3 use test
 
 ## Project setup
 ```
